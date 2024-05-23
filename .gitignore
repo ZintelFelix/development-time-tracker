@@ -483,3 +483,8 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
+obj/Debug/net8.0/Development-Time-Tracker.AssemblyInfo.cs
+obj/Debug/net8.0/Development-Time-Tracker.AssemblyInfoInputs.cache
+obj/Debug/net8.0/Development-Time-Tracker.assets.cache
+obj/Debug/net8.0/Development-Time-Tracker.GeneratedMSBuildEditorConfig.editorconfig
+obj/Debug/net8.0/project.razor.vscode.bin
