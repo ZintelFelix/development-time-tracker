@@ -1,0 +1,16 @@
+.home-container {
+    display: flex;
+}
+
+.left-segment, .right-segment {
+    flex: 1;
+    padding: 20px;
+}
+
+.left-segment {
+    background-color: #f0f0f0;
+}
+
+.right-segment {
+    background-color: #e0e0e0;
+}
