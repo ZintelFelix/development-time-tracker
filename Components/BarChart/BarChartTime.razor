@@ -1,48 +1,93 @@
-<Chart @ref="barChart" Type="ChartType.Bar" TItem="double"/>
-@code {
-    Chart<double> barChart;
+<html>
+<head>
+  <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/v8/js/anychart-ui.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/v8/js/anychart-exports.min.js"></script>
+  <link href="https://cdn.anychart.com/releases/v8/css/anychart-ui.min.css" type="text/css" rel="stylesheet">
+  <link href="https://cdn.anychart.com/releases/v8/fonts/css/anychart-font.min.css" type="text/css" rel="stylesheet">
+  <style type="text/css">
 
-    protected override async Task OnAfterRenderAsync( bool firstRender )
-    {
-        if ( firstRender )
-        {
-            await HandleRedraw();
-        }
+    html,
+    body,
+    #container {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
     }
+  
+</style>
+</head>
+<body>
+  
+  <div id="container"></div>
+  
 
-    async Task HandleRedraw()
-    {
-        await barChart.Clear();
+  <script>
 
-        await barChart.AddLabelsDatasetsAndUpdate( Labels, GetBarChartDataset() );
-    }
+    anychart.onDocumentReady(function () {
+      // create data set on our data
+      var chartData = {
+        header: ['#', 'INITIAL GESCHÄTZE ZEIT', 'TATSÄCHLICH AUFGEWENDETE ZEIT', 'DIFFERENZ'],
+        rows: [
+          ['#145', 10, 13, 3],
+          ['#223', 15, 12, -3],
+          ['#378', 20, 25, 5],
+          ['#507', 12, 10, -2],
+          ['#689', 8, 6, -2],
+          ['#742', 16, 14, -2],
+          ['#896', 18, 20, 2],
+          ['#436', 30, 35, 5],
+          ['#781', 62, 49, -13],
+          ['#16', 37, 38, 1],
+        ]
+      };
 
-    private BarChartDataset<double> GetBarChartDataset()
-    {
-        return new()
-            {
-                Label = "# of randoms",
-                Data = RandomizeData(),
-                BackgroundColor = backgroundColors,
-                BorderColor = borderColors,
-                BorderWidth = 1
-            };
-    }
+      // create column chart
+      var chart = anychart.column();
 
-    string[] Labels = { "Red", "Blue", "Yellow", "Green", "Purple", "Orange" };
-    List<string> backgroundColors = new List<string> { ChartColor.FromRgba( 255, 99, 132, 0.2f ), ChartColor.FromRgba( 54, 162, 235, 0.2f ), ChartColor.FromRgba( 255, 206, 86, 0.2f ), ChartColor.FromRgba( 75, 192, 192, 0.2f ), ChartColor.FromRgba( 153, 102, 255, 0.2f ), ChartColor.FromRgba( 255, 159, 64, 0.2f ) };
-    List<string> borderColors = new List<string> { ChartColor.FromRgba( 255, 99, 132, 1f ), ChartColor.FromRgba( 54, 162, 235, 1f ), ChartColor.FromRgba( 255, 206, 86, 1f ), ChartColor.FromRgba( 75, 192, 192, 1f ), ChartColor.FromRgba( 153, 102, 255, 1f ), ChartColor.FromRgba( 255, 159, 64, 1f ) };
+      // set chart data
+      chart.data(chartData);
 
-    List<double> RandomizeData()
-    {
-        var r = new Random( DateTime.Now.Millisecond );
+      // turn on chart animation
+      chart.animation(true);
 
-        return new List<double> {
-            r.Next( 3, 50 ) * r.NextDouble(),
-            r.Next( 3, 50 ) * r.NextDouble(),
-            r.Next( 3, 50 ) * r.NextDouble(),
-            r.Next( 3, 50 ) * r.NextDouble(),
-            r.Next( 3, 50 ) * r.NextDouble(),
-            r.Next( 3, 50 ) * r.NextDouble() };
-    }
-}
+      chart.yAxis().labels().format('Std:{%Value}{groupsSeparator: }');
+
+      // set titles for Y-axis
+      chart.yAxis().title('Zeit');
+
+      chart
+        .labels()
+        .enabled(true)
+        .position('center-top')
+        .anchor('center-bottom')
+        .format('{%Value}{groupsSeparator: }Std');
+      chart.hovered().labels(false);
+
+      // turn on legend and tune it
+      chart.legend().enabled(true).fontSize(13).padding([0, 0, 20, 0]);
+
+      // interactivity settings and tooltip position
+      chart.interactivity().hoverMode('single');
+
+      chart
+        .tooltip()
+        .positionMode('point')
+        .position('center-top')
+        .anchor('center-bottom')
+        .offsetX(0)
+        .offsetY(5)
+        .titleFormat('{%X}')
+        .format('{%SeriesName} : Std:{%Value}{groupsSeparator: }');
+
+      // set container id for the chart
+      chart.container('container');
+
+      // initiate chart drawing
+      chart.draw();
+    });
+  
+</script>
+</body>
+</html>
