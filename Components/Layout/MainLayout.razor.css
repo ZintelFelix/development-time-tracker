@@ -26,20 +26,6 @@ main {
     justify-content: space-between;
 }
 
-.first-text,
-.second-text {
-    display: flex;
-    align-items: center;
-}
-
-.first-text {
-    margin-right: auto;
-}
-
-.second-text {
-    margin-left: auto;
-}
-
 @media (max-width: 640.98px) {
     .top-row {
         justify-content: space-between;

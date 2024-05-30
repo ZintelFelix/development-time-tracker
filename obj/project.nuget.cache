@@ -1,13 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "lGfCqWGelPM=",
+  "dgSpecHash": "BiLZXxfRMDY=",
   "success": true,
   "projectFilePath": "C:\\Users\\fezi1\\Desktop\\CodeBase\\Development-Time-Tracker\\Development-Time-Tracker.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\fezi1\\.nuget\\packages\\blazorise\\1.5.2\\blazorise.1.5.2.nupkg.sha512",
     "C:\\Users\\fezi1\\.nuget\\packages\\blazorise.bootstrap5\\1.5.2\\blazorise.bootstrap5.1.5.2.nupkg.sha512",
+    "C:\\Users\\fezi1\\.nuget\\packages\\blazorise.charts\\1.5.2\\blazorise.charts.1.5.2.nupkg.sha512",
     "C:\\Users\\fezi1\\.nuget\\packages\\blazorise.icons.fontawesome\\1.5.2\\blazorise.icons.fontawesome.1.5.2.nupkg.sha512",
     "C:\\Users\\fezi1\\.nuget\\packages\\blazorise.licensing\\1.2.0\\blazorise.licensing.1.2.0.nupkg.sha512",
+    "C:\\Users\\fezi1\\.nuget\\packages\\lambda2js\\3.1.4\\lambda2js.3.1.4.nupkg.sha512",
     "C:\\Users\\fezi1\\.nuget\\packages\\microsoft.aspnetcore.authorization\\8.0.4\\microsoft.aspnetcore.authorization.8.0.4.nupkg.sha512",
     "C:\\Users\\fezi1\\.nuget\\packages\\microsoft.aspnetcore.components\\8.0.4\\microsoft.aspnetcore.components.8.0.4.nupkg.sha512",
     "C:\\Users\\fezi1\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\8.0.4\\microsoft.aspnetcore.components.analyzers.8.0.4.nupkg.sha512",
